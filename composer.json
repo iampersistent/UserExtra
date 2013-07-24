@@ -1,0 +1,17 @@
+{
+    "name": "iampersistent/user-extra",
+    "type": "entities",
+    "description": "Extensions to the FOSUser capability",
+    "keywords": ["user", "asset"],
+    "homepage": "https://github.com/iampersistent/UserExtra",
+    "license": "MIT",
+    "require": {
+        "php": ">=5.3.3",
+        "vespolina/media": "dev-master"
+    },
+    "autoload": {
+        "psr-0": {
+            "UserExtra": "lib/"
+        }
+    }
+}
