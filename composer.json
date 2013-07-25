@@ -6,7 +6,7 @@
     "homepage": "https://github.com/iampersistent/UserExtra",
     "license": "MIT",
     "require": {
-        "php": ">=5.3.3",
+        "php": ">=5.4.6",
         "vespolina/media": "dev-master"
     },
     "extra": {
