@@ -1,0 +1,5 @@
+UserExtra\Entity\Identity\FacebookIdentity:
+    type: embeddedDocument
+    fields:
+        vendor:
+            type: string

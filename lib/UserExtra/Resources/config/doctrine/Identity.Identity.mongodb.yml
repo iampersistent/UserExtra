@@ -1,0 +1,8 @@
+UserExtra\Entity\Identity\Identity:
+    type: mappedSuperclass
+    fields:
+        createdAt:
+            type: date
+        username:
+            type: string
+

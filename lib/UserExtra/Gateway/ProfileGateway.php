@@ -9,11 +9,12 @@ use Molino\SelectQueryInterface;
 
 class ProfileGateway
 {
-    protected $managedClass = 'UserExtra\Entity\Profile';
+    protected $managedClass;
     protected $molino;
 
-    public function __construct(MolinoInterface $molino)
+    public function __construct(MolinoInterface $molino, $class)
     {
+        $this->managedClass = $class;
         $this->molino = $molino;
     }
 

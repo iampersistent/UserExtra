@@ -1,0 +1,6 @@
+UserExtra\Entity\Identity\ZenDeskIdentity:
+    type: embeddedDocument
+    fields:
+        vendor:
+            type: string
+

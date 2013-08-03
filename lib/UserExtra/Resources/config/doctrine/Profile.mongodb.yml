@@ -1,0 +1,32 @@
+UserExtra\Entity\Profile:
+    type: mappedSuperclass
+    fields:
+        id:
+            id: true
+            strategy: NONE
+        avatarUrl:
+            type: string
+        bio:
+            type: string
+        birthday:
+            type: date
+        displayName:
+            type: string
+        firstName:
+            type: string
+        gender:
+            type: string
+        lastName:
+            type: string
+        location:
+            type: string
+        profession:
+            type: string
+        slug:
+            type: string
+        publishBirthday:
+            type: boolean
+        publishGender:
+            type: boolean
+        publishLocation:
+            type: boolean

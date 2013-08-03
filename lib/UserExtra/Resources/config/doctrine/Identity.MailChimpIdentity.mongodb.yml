@@ -1,0 +1,5 @@
+UserExtra\Entity\Identity\MailChimpIdentity:
+    type: embeddedDocument
+    fields:
+        vendor:
+            type: string

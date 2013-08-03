@@ -1,5 +1,5 @@
 <?php
-namespace UserExtra\Entity;
+namespace UserExtra\Entity\Identity;
 
 use UserExtra\Entity\Identity\Identity;
 /**
