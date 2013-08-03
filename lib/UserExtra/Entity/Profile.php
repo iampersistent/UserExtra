@@ -11,12 +11,15 @@ class Profile
     protected $avatarUrl;
     protected $bio;
     protected $birthday;
+    protected $displayName;
     protected $firstName;
     protected $gender;
     protected $id;
     protected $lastName;
     protected $location;
-    protected $publishedFields = array();
+    protected $publishBirthday;
+    protected $publishGender;
+    protected $publishLocation;
     protected $profession;
     protected $slug;
     protected $user;
@@ -35,37 +38,15 @@ class Profile
         'location'
     );
 
-    protected static $requiredPublishedFields = array(
-        'displayName'
+    protected static $publishedFields = array(
+        'avatarUrl',
+        'bio',
+        'birthday',
+        'displayName',
+        'gender',
+        'location',
+        'profession',
     );
-
-    public function __call($name, $arguments)
-    {
-         if (substr($name, 0, 10) == 'getPublish') {
-             $field = lcfirst(substr($name, 10));
-             if (in_array($field, self::$requiredPublishedFields) ) {
-                 return true;
-             }
-             if (in_array($field, $this->publishedFields) ) {
-                 return true;
-             }
-
-             return false;
-        }
-        if (substr($name, 0, 10) == 'setPublish') {
-            $set = (bool)$arguments[0];
-            $field = lcfirst(substr($name, 10));
-            $key = array_search($field, $this->publishedFields);
-
-            if (!$set && $key !== false) {
-                unset($this->publishedFields[$key]);
-            } elseif ($key === false && $set) {
-                $this->publishedFields[] = $field;
-            }
-
-            return $this;
-        }
-    }
 
     /**
      * @param string $firstName
@@ -285,6 +266,74 @@ class Profile
     }
 
     /**
+     * Set the publishBirthday
+     *
+     * @param boolean $publishBirthday
+     */
+    public function setPublishBirthday($publishBirthday)
+    {
+        $this->publishBirthday = $publishBirthday;
+
+        return $this;
+    }
+
+    /**
+     * Return the publishBirthday
+     *
+     * @return boolean
+     */
+    public function getPublishBirthday()
+    {
+        return (bool) $this->publishBirthday;
+    }
+
+    /**
+     * Set the publishGender
+     *
+     * @param boolean $publishGender
+     */
+    public function setPublishGender($publishGender)
+    {
+        $this->publishGender = $publishGender;
+
+        return $this;
+    }
+
+    /**
+     * Return the publishGender
+     *
+     * @return boolean
+     */
+    public function getPublishGender()
+    {
+        return (bool) $this->publishGender;
+    }
+
+    /**
+     * Set the publishLocation
+     *
+     * @param boolean $publishLocation
+     */
+    public function setPublishLocation($publishLocation)
+    {
+        $this->publishLocation = $publishLocation;
+
+        return $this;
+    }
+
+    /**
+     * Return the publishLocation
+     *
+     * @return boolean
+     */
+    public function getPublishLocation()
+    {
+        return (bool) $this->publishLocation;
+    }
+
+
+
+    /**
      * @param string $slug
      * @return $this
      */
@@ -334,51 +383,6 @@ class Profile
         }
 
         return true;
-    }
-
-    public function setDisplayBirthday($displayBirthday)
-    {
-        $this->displayBirthday = (bool)$displayBirthday;
-
-        return $this;
-    }
-
-    /**
-     * @return boolean
-     */
-    public function isDisplayBirthday()
-    {
-        return $this->displayBirthday;
-    }
-
-    public function setDisplayGender($displayGender)
-    {
-        $this->displayGender = (bool)$displayGender;
-
-        return $this;
-    }
-
-    /**
-     * @return boolean
-     */
-    public function isDisplayGender()
-    {
-        return $this->displayGender;
-    }
-
-    public function setDisplayLocation($displayLocation)
-    {
-        $this->displayLocation = (bool)$displayLocation;
-
-        return $this;
-    }
-
-    /**
-     * @return boolean
-     */
-    public function isDisplayLocation()
-    {
-        return $this->displayLocation;
     }
 
     public function toApi()
